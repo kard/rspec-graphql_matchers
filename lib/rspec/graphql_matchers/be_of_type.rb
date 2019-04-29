@@ -9,12 +9,12 @@ module RSpec
 
       def matches?(actual_sample)
         @sample = actual_sample
-        sample.type.to_s == @expected.to_s
+        sample.type.to_type_signature == @expected.to_s
       end
 
       def failure_message
         "expected field '#{field_name(sample)}' to be of type '#{expected}', " \
-        "but it was '#{sample.type}'"
+        "but it was '#{sample.type.to_type_signature}'"
       end
 
       def description
